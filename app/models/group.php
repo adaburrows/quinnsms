@@ -1,5 +1,5 @@
 <?php
-class user extends db {
+class group extends db {
 
   public function __construct() {
     parent::__construct();
@@ -7,30 +7,21 @@ class user extends db {
       'users' => array(
         'id',
         'name',
-        'sms_number'
+        'sms_number',
+        'passcode'
       )
     );
   }
 
   public function get_by_id($id) {
     $select = $this->build_select($this->primary_aspect);
-    return self::query_item("$select WHERE `id` = $id;");
+    return db::query_item("$select WHERE `id` = $id;");
   }
 
   public function get_by_phone($phone) {
     $phone = preg_replace('/[^0-9]/', '', $phone);
-    $select = $this->build_select('users');
+    $select = $this->build_select($this->primary_aspect);
     return db::query_item("$select WHERE `sms_number` = '$phone';");
-  }
-
-  public function get_or_create($num) {
-    $data = $this->get_by_phone($phone);
-    if($data) {
-      // yay it worked!
-    } else {
-      // create a use by number
-      $this->set(array('sms_number' => $num));
-    }
   }
 
 }
