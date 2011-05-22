@@ -1,14 +1,23 @@
 Web:
 
+A teacher can use the QUINN web site to
+   rename and delete students who have signed up for notifications
+   change class name
+
 go to splash page
 click "I'm a teacher", see instructions to create a new class
   "text class name (example: "Ms. Brown's 3rd Grade") to ###.###.####,
   and the reply will give you a login to use here: <form to login to
   enter class info>"
+    classes are created via a fixed long code
+    the reply includes a long code that is specific to this class
 enter code from text message reply, submit, see new class form
 enter/edit class information, submit, see instructions to give students
   "Now your students can text 'join' to ###-###-#### to sign up for
   your reminder messages"
+    students use the class-specific long code
+
+Students cannot do anything via the web in phase 1
 
 SMS:
 
