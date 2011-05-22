@@ -4,7 +4,7 @@
  * A PHP class for interacting with the SMSified API.
  *
  */
-class SMSified {
+class smsified {
 	
 	// Private class members.
 	private $base_url = 'https://api.smsified.com/v1/';
@@ -18,7 +18,7 @@ class SMSified {
 	 * @param string $username
 	 * @param string $password
 	 */
-	public function __construct($username, $password) {
+	public function auth($username, $password) {
 		$this->username = $username;
 		$this->password = $password;
 	}
@@ -105,7 +105,20 @@ class SMSified {
 		}
 		
 		return self::makeAPICall('GET', $url);
+	}
+	
+	public function provisionNewNumber($applicationId, $areaCode) {
+		$url = $this->base_url . "applications/" . $applicationId . "/addresses.json";
 		
+		$response = self::makeAPICall('POST', $url, array('type'=>'number', 'prefix'=>'1'.$areaCode));
+		echo $response;
+		die("hi");
+		$response = json_decode($response);
+		if(preg_match('/(1[0-9]{10})/', $response->href, $match)) {
+			return $match[1];
+		} else {
+			return FALSE;
+		}
 	}
 	
 	
@@ -117,7 +130,7 @@ class SMSified {
 	 * @param string $payload
 	 * @return string JSON
 	 */
-	private function makeAPICall($method, $url) {
+	private function makeAPICall($method, $url, $postBody=NULL) {
 
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -128,6 +141,9 @@ class SMSified {
 			
 			case 'POST':
 				curl_setopt($ch, CURLOPT_POST, true);
+				if($postBody) {
+					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postBody));
+				}
 			    break;
 			    
 			case 'DELETE':
