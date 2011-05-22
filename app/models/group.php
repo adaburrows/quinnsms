@@ -3,7 +3,7 @@ class group extends db {
 
   public function __construct() {
     $this->aspects = array(
-      'users' => array(
+      'groups' => array(
         'id',
         'name',
         'sms_number',
