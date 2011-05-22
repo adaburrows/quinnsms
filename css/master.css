@@ -1,0 +1,134 @@
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+
+body{
+  font-size:12px;
+  font-family: Verdana, Arial, sans-serif;
+  background: #d0f5f5;
+  line-height: 18px;
+  color:#434343;
+}
+
+h1{
+  text-shadow: 2px 2px 5px #ccc;
+  margin: 10px 0;
+  font-weight:bold;
+}
+
+p{
+  margin: 5px 0;
+}
+
+#logo{
+    width:203px;
+    height: 46px;
+    display:block;
+    background: transparent url(../images/logo.png) no-repeat;
+    margin:auto;
+    z-index:2;
+    position:relative;
+}
+
+#container{
+    max-width:500px;
+    min-width:300px;
+    margin: 10px auto;
+    padding:10px;
+}
+
+.content{
+    background:#fff;
+    padding:10px;
+    position:relative;
+    top:-8px;
+    z-index: 1;
+    border-radius: 10px;
+    border: 1px solid #39e5ef;
+    margin-bottom:10px;
+}
+
+label{
+  font-weight: bold;
+  display: block;
+}
+
+#phonelist label.phone{
+    display: inline;
+}
+ul#phonelist li{
+    margin: 5px 0;
+}
+
+ul#phonelist{
+    list-style-type: none;
+}
+
+span.error{
+    color:#F00;
+    font-weight:bold;
+    background:#fcc;
+    padding:4px 4px 4px 10px;
+    border-radius: 10px 5px 5px 10px;
+    margin-left:10px;
+}
+
+#starcup{
+    float:right;
+    padding: 0 10px;
+}
+
+a{
+  color:#18848e;
+  text-decoration:none;
+}
+
+.big{
+    font-weight:bold;
+    font-size:1.4em;
+}
+.clearer{ clear: both; }

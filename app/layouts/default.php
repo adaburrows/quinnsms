@@ -1,30 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="<?php _e($keywords); ?>" />
-  <meta name="description" content="<?php _e($description); ?>" />
-  <title><?php _e($title); ?></title>
-  <?php _e($css); ?>
-  <?php _e($scripts) ?>
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-</head>
-<body>
-  <div id="header">
-    <div class="wrap">
-      <a class="logo" href="<?php echo site_url(''); ?>"></a>
-      <?php _e($header); ?>
-    </div>
-  </div>
-  <div id="main">
-    <div class="wrap">
-      <?php _e($content); ?>
-    </div>
-  </div>
-  <div id="footer">
-    <div class="wrap">
-      <?php _e($footer); ?>
-    </div>
-  </div>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Quinn</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<?php _e($css); ?>
+		<?php _e($scripts) ?>
+	</head>
+	<body>
+		<div id="container">
+			<a id="logo" href="/"></a>
+
+			<div id="content">
+			<?php _e($content); ?>
+			</div>
+            <div class="content">
+            Built at the CivicApps mobile apps for education hackathon. Powered by <a href="https://www.tropo.com">Tropo</a>.
+            </div>
+		</div>
+	</body>
 </html>

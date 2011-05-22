@@ -16,6 +16,9 @@ class controller {
     if(router::getReqType() === 'html'){
 
     }
+    layout::addCss('jqueryui', site_url('css/jquery-ui-1.8.13.custom.css'));
+    layout::addCss('master', site_url('css/master.css'));
+
   }
 
 }
