@@ -1,0 +1,44 @@
+Tests for QUINN SMS functionality
+---------------------------------
+These tests will not work in isolation; the class must be created to get the
+class long code that will be used in the next test, for example. Run these
+tests sequentially unless there is a blocking failure.
+
+Requires: Fixed (QUINN) long code: _________________
+Requires: Two cell phones with SMS capability (teacher and student)
+Requires: clean database (class named in test #1 does not exist)
+
+1. Create class
+User: teacher
+
+Action: Text "Ms. Case's Android Class" to QUINN long code
+Expect: text reply with class long code and a password
+
+2. Sign up for class notifications
+User: student
+
+Action: Text 'join' to the class long code
+Expect: reply containing a request for student's name
+Action: reply to that text with student's name
+Expect: text confirmation message
+
+3. Messages from teacher go to student
+User: teacher
+
+Action: send a text message to class long code
+Expect: All signed-up students' phones get that message
+
+4. Messages from student go to teacher
+User: student
+
+Action: send a text message to class long code
+Expect: teacher's phone gets that message
+Expect: no student's phone gets that message
+
+5. Scale users for a class
+Action: repeat tests 2 through 4 adding more students
+Expect: all tests still pass
+
+6. Scale classes
+Action: repeat tests 1 through 5 with unique class titles
+Expect: all tests still pass
