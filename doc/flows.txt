@@ -1,0 +1,24 @@
+Web:
+
+go to splash page
+click "I'm a teacher", see instructions to create a new class
+  "text class name (example: "Ms. Brown's 3rd Grade") to ###.###.####,
+  and the reply will give you a login to use here: <form to login to
+  enter class info>"
+enter code from text message reply, submit, see new class form
+enter/edit class information, submit, see instructions to give students
+  "Now your students can text 'join' to ###-###-#### to sign up for
+  your reminder messages"
+
+SMS:
+
+teacher sends text to QUINN number to create a class
+reply includes a new (class) phone number and password
+
+students text 'join' to the class phone number to get notifications
+student gets a reply requesting their name
+student texts name to complete signup
+student gets a confirmation text
+
+SMS from teacher goes to all students
+SMS from a student goes only to teacher
