@@ -27,9 +27,12 @@ class user extends db {
     $data = $this->get_by_phone($phone);
     if($data) {
       // yay it worked!
+      return $data;
     } else {
       // create a use by number
       $this->set(array('sms_number' => $phone));
+      $id = mysql_insert_id();
+      return $this->get_by_id($id);
     }
   }
 

@@ -3,7 +3,7 @@ class subscriber extends db {
 
   public function __construct() {
     $this->aspects = array(
-      'users' => array(
+      'subscribers' => array(
         'id',
         'user_id',
         'model_id'
