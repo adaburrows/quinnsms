@@ -2,7 +2,6 @@
 class group extends db {
 
   public function __construct() {
-    parent::__construct();
     $this->aspects = array(
       'users' => array(
         'id',
@@ -11,6 +10,7 @@ class group extends db {
         'passcode'
       )
     );
+    parent::__construct();
   }
 
   public function get_by_id($id) {
