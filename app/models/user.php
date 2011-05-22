@@ -2,7 +2,6 @@
 class user extends db {
 
   public function __construct() {
-    parent::__construct();
     $this->aspects = array(
       'users' => array(
         'id',
@@ -10,6 +9,7 @@ class user extends db {
         'sms_number'
       )
     );
+    parent::__construct();
   }
 
   public function get_by_id($id) {
@@ -20,16 +20,16 @@ class user extends db {
   public function get_by_phone($phone) {
     $phone = preg_replace('/[^0-9]/', '', $phone);
     $select = $this->build_select('users');
-    return db::query_item("$select WHERE `sms_number` = '$phone';");
+    return db::query_item("$select WHERE `sms_number` = '$phone'");
   }
 
-  public function get_or_create($num) {
+  public function get_or_create($phone) {
     $data = $this->get_by_phone($phone);
     if($data) {
       // yay it worked!
     } else {
       // create a use by number
-      $this->set(array('sms_number' => $num));
+      $this->set(array('sms_number' => $phone));
     }
   }
 

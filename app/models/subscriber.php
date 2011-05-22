@@ -2,7 +2,6 @@
 class subscriber extends db {
 
   public function __construct() {
-    parent::__construct();
     $this->aspects = array(
       'users' => array(
         'id',
@@ -10,6 +9,7 @@ class subscriber extends db {
         'model_id'
       )
     );
+    parent::__construct();
   }
 
   public function get_by_id($id) {
