@@ -1,0 +1,46 @@
+Tests for QUINN web functionality
+---------------------------------
+These tests will not work in isolation; the class must be created to get the
+class long code that will be used in the next test, for example. Run these
+tests sequentially unless there is a blocking failure.
+
+Requires: Fixed (QUINN) long code: _________________
+Requires: URL for QUINN site: ______________________
+Requires: Two cell phones with SMS capability (teacher and student)
+Requires: clean database (class named in test #1 does not exist)
+
+1. Create class
+User: teacher
+
+Action: Text "Ms. Case's Android Class" to QUINN long code
+Expect: text reply with class long code and a password
+
+2. Teacher can log in with password
+User: teacher
+
+Action: go to QUINN URL, log in with password
+Expect: See the class page with class title as sent to QUINN long code
+Expect: see no students signed up
+
+3. Sign up for class notifications
+User: student
+
+Action: Text 'join' to the class long code
+Expect: reply containing a request for student's name
+Action: reply to that text with student's name
+Expect: text confirmation message
+
+4. Signed-up students show on class web page
+User: teacher
+
+Action: go to QUINN URL, log in with password
+Expect: see one student signed up
+
+5. Scale users for a class
+Action: repeat tests 4 adding more students
+Expect: see all signed-up students on the class web page
+
+6. Scale classes
+Action: repeat tests 1 through 5 with unique class titles
+Expect: all tests still pass
+
