@@ -4,17 +4,23 @@
 		<fieldset>
 			<p>
 			<label for="name">Class Name:</label>
-			<input type="text" id="name" name="name" />
+			<input type="text" id="name" name="name" value="<?=$name?>"/>
 			</p>
 
 			<ul id="phonelist">
-				<li><label class="phone" >(555) 555-5555:</label> <input type="text" class="phone" name="phone[]" value="First Last"/> <input type="checkbox" name="delete[514]" class="delete" id="label_1"/> <label class="delete" for="label_1">Delete</label></li>
-				<li><label class="phone" >(555) 555-5555:</label> <input type="text" class="phone" name="phone[]" value="First Last"/> <input type="checkbox" name="delete[213]" class="delete" id="label_2"/> <label class="delete" for="label_2">Delete</label></li>
-				<li><label class="phone" >(555) 555-5555:</label> <input type="text" class="phone" name="phone[]" value="First Last"/> <input type="checkbox" name="delete[123]" class="delete" id="label_3"/> <label class="delete" for="label_3">Delete</label></li>
+<?php		foreach($users as $i => $user): ?>
+				<li>
+					<label class="phone" ><?=$user['sms_number']?>:</label>
+					<input type="text" class="phone" name="user[<?=$user['id']?>]" value="<?=$user['name']?>" />
+					<input type="checkbox" name="delete[<?=$user['id']?>]" class="delete" id="label_<?=$i?>"/>
+					<label class="delete" for="label_<?=$i?>">Delete</label>
+				</li>
+<?php		endforeach; ?>
 			</ul>
 
 			<p>
-			<input type="submit" name="update" value="Update" />
+			<input type="hidden" name="update" value="Update" />
+			<input type="submit" value="Update" />
 			</p>
 		</fieldset>
 	</form>

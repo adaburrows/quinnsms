@@ -7,6 +7,16 @@ class user extends db {
         'id',
         'name',
         'sms_number'
+      ),
+      'subscribers' => array(
+        'user_id',
+        'group_id'
+      )
+    );
+
+    $this->join_on = array(
+      'users' => array(
+        'subscribers' => '`users`.`id` = `subscribers`.`user_id`'
       )
     );
     parent::__construct();
@@ -21,6 +31,11 @@ class user extends db {
     $phone = preg_replace('/[^0-9]/', '', $phone);
     $select = $this->build_select('users');
     return db::query_item("$select WHERE `sms_number` = '$phone'");
+  }
+
+  public function get_by_group_id($group_id) {
+    $select = $this->build_select();
+    return db::query_array("$select WHERE `subscribers`.`group_id` = $group_id");
   }
 
   public function get_or_create($phone) {

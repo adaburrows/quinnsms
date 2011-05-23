@@ -7,8 +7,8 @@ $(function(){
 	.change(function(e){
 		// If checked post message to server and remove element
 		if(this.checked){
-			var id = $('input.delete:eq(0)').attr('name').match(/(\d+)/)[1];
-			$.post('', {id: id}, function(response){
+			var id = $(e.target).attr('name').match(/(\d+)/)[1];
+			$.post(document.location.href, {id: id}, function(response){
 				$(e.target).closest('li').fadeOut('fast', function(){
 					$(this).remove();
 				});
@@ -37,7 +37,7 @@ $(function(){
 		});
 
 		if (error === false){
-			$.post('',$(this).serializeArray(),function(e){
+			$.post(document.location.href,$(this).serializeArray(),function(e){
 				$('<span />').text('Form Saved').insertAfter($('form input[type="submit"]'))
 				.fadeOut(2000, function(){
 					$(this).remove();
