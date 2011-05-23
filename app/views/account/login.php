@@ -1,6 +1,6 @@
 <div class="content">
 	<h1>Login</h1>
-	<form action="<?=site_url('account/login')?>" method="post">
+	<form action="<?php echo site_url('account/login')?>" method="post">
 		<fieldset>
 			<p>
 			<label for="phone_number">Phone Number:</label>
