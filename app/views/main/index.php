@@ -21,8 +21,8 @@
 
 <div class="content">
 	<h1>Simply text your class name to</h1>
-	<p class="big">504-555-8899</p>
+	<p class="big">(503) 847-9364</p>
 	<p>
-		You will recive a code and phone number. Once you have those you may <a href="<?=site_url('account/login')?>">login to your account</a> and manage it.
+		You will receive a code and phone number. Once you have those you may <a href="<?=site_url('account/login')?>">login to your account</a> and manage it.
 	</p>
 </div>
