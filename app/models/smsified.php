@@ -111,8 +111,6 @@ class smsified {
 		$url = $this->base_url . "applications/" . $applicationId . "/addresses.json";
 		
 		$response = self::makeAPICall('POST', $url, array('type'=>'number', 'prefix'=>'1'.$areaCode));
-		echo $response;
-		die("hi");
 		$response = json_decode($response);
 		if(preg_match('/(1[0-9]{10})/', $response->href, $match)) {
 			return $match[1];
@@ -142,7 +140,7 @@ class smsified {
 			case 'POST':
 				curl_setopt($ch, CURLOPT_POST, true);
 				if($postBody) {
-					curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postBody));
+					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postBody));
 				}
 			    break;
 			    
@@ -164,7 +162,7 @@ class smsified {
 	    	throw new SMSifiedException('An error occurred: '.$error);
 		 } else {
 		 	if (substr($curl_http_code, 0, 2) != '20') {
-		     throw new SMSifiedException('An error occurred: Invalid HTTP response returned: '.$curl_http_code);
+		     throw new SMSifiedException('An error occurred: Invalid HTTP response returned: '.$curl_http_code."\n".$result);
 		    }
 		  return $result;
 		 }		

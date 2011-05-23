@@ -5,6 +5,7 @@ class group extends db {
     $this->aspects = array(
       'groups' => array(
         'id',
+        'user_id',
         'name',
         'sms_number',
         'passcode'
