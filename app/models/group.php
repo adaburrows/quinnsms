@@ -25,4 +25,12 @@ class group extends db {
     return db::query_item("$select WHERE `sms_number` = '$phone';");
   }
 
+  public function verify($phone, $code) {
+    $phone = preg_replace('/[^0-9]/', '', $phone);
+    $code = preg_replace('/[^0-9]/', '', $code);
+
+    $select = $this->build_select($this->primary_aspect);
+    return db::query_item("$select WHERE `sms_number` = '$phone' AND `passcode` = '$code';");
+  }
+
 }
