@@ -1,0 +1,68 @@
+INSTALLATION
+============
+
+Requirements
+------------
+Make sure that you are running a recent version of PHP. Currently PHP 5.2.x
+seems to run this, but I do not plan on keeping it compatible. Install the
+bleeding edge PHP from source if you want full compatibility. ;-)
+
+Basic Setup
+-----------
+Clone the skeleton app from the repository:
+
+  git clone git://github.com/jburrows/dynamis-app-skel.git
+
+Then change into the dynamis-app-skel directory just created. When you are
+there, clone the dynamis framework:
+
+  git clone git://github.com/jburrows/dynamis.git
+
+It will populate the empty dynamis-app-skel/dynamis directory.
+
+Next, you will need to copy the app/config.php.template to app/config.php.
+Open the file up and make changes as nescessary. I've documented it to make it
+easy on you.
+
+You can setup your webserver to serve up the dynamis-app-skel directory. If you
+are using Apache httpd, make sure it loads the .htaccess file and uses the
+mod_rewrite rules specified. Otherwise, you won't be able to use the framework.
+If this becomes a problem, get all your friends to complain to me and I'll think
+about adding it.
+
+If you are using nginx, I've included a sample server directive for you hacking
+pleasure. If you need more help setting it up with nginx, I pitty your soul --
+and why are you using it in the first place? But really, just email me and I'll
+see about helping you (No promises!).
+
+Extra Measures
+--------------
+After these steps, one can take extra measures to ensure the security of your
+application. First, move the dynamis subdirectory to a place that is not in a
+document root of your webserver. Make a note of this location, you'll need
+to change the value in the dynamis-app-skel/index.php file. Next, move the app
+subdirectory to another location outside of the document root, also noting your
+chosen location for it.
+
+Open the dynamis-app-skel/index.php file and find the following array:
+
+  $dyn = array(
+    'sys' => "dynamis",     //dynamis core folder
+    'app' => "app",         //user defined files (mostly)
+    'web' => "."            //web facing folder (by default, everything is -- and this is not used)
+  );
+
+Change the 'sys' and 'app' keys to point to the new locations you chose for the
+dynamis and app subdirectories.
+
+WRITING APPS
+============
+
+Umm, it's like using any other MVC framework... Just familiarize yourself with
+Rails, Code Igniter, CakePHP, Symphony and a few others -- then you'll pick it
+up in no time!
+
+But Really...
+-------------
+
+I'm going to write docs for this another day, check back soon. Peace!

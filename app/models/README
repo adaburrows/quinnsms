@@ -1,0 +1,61 @@
+MODELS
+======
+
+This is where your models go.
+
+Make sure the model classes inheirit from the basic datasource you want them to
+draw from. The following are core classes or lib classes that you can use to
+derive models from:
+  + db
+  + http_request
+  + OAuth2
+  + facebook_graph
+  + geoloqi
+  + more coming soon...
+
+If you don't derive from the db class, make sure dynamis knows you want access
+to a lib by calling:
+
+  app::getLib('lib_name');
+
+You can call this right before you define your class.
+
+db -- It's Magic!
+-----------------
+There are some really special properties with the db class. It allows you
+write a few arrays that define the fields of your tables and your join
+conditions. It writes the basic queries for you and can do multiple joins
+with a very compact syntax.
+
+For instance, put the following in the constructor of a model:
+
+  $this->aspects = array(
+    'users' => array(
+      'id',
+      'name',
+      'sms_number'
+    ),
+    'subscribers' => array(
+      'user_id',
+      'group_id'
+    )
+  );
+
+  $this->join_on = array(
+    'users' => array(
+      'subscribers' => '`users`.`id` = `subscribers`.`user_id`'
+    )
+  );
+
+Calling get_all() on your model will return an inner join on the two tables
+users and subscribers.
+
+Calling set() and passing in set of key value pairs will allow you to either
+create or update data in a table. If the primary key is set in the hash, the
+method will update the data. If it isn't set, it will insert the data into the
+primary table.
+
+It's still on the to do list to enable passing in a joined representation of
+the data and inserting it into the table. So maybe it's not as magic as I said,
+but really it does a lot and is very capable -- dig into the source in
+dynamis/core/db.php and see how it works.
